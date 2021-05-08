@@ -1,0 +1,9 @@
+#carde{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px;
+}
+.openw{
+    color:  #C70039 ;
+}
