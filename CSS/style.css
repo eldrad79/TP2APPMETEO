@@ -10,3 +10,8 @@ body{
     align-items: center;
     text-align: center;
 }
+
+#icolocal:hover{
+    color: #C70039;
+    transform: scale3d(1,1,1);
+}
