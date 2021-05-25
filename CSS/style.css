@@ -1,11 +1,12 @@
-body {
-    padding-left: 30px;
-    padding-right: 40px;
+.openw{
+    color:  #C70039 ;
+}
+body{
+    width: 100vh;
     height: 100vh;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
-.openw{
-    color:  #C70039 ;}
