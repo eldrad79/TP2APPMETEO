@@ -12,8 +12,7 @@ const meteo = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${vi
 .then(Resultat => Resultat.json())
 .then(json => json) 
 
-    let affichage = ville + " " + meteo.weather[0].description;
-    document.querySelector("#villes").innerHTML = affichage;
+affichage(ville,meteo)
 
 }
 geoloc()
@@ -25,9 +24,25 @@ async function recherche () {
     const meteo = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ville}&units=metric&lang=fr&appid=bc9752ae85bb91066c7caa0ae2b4c27d`)
     .then(Response=> Response.json())
     .then(json => json)
+affichage(ville, meteo);
+mapvue(meteo);
+
     
-    let affichage = ville + " " + meteo.weather[0].description;
-    document.querySelector("#villes").innerHTML = affichage;
 }
+function affichage (ville, meteo){
+    document.querySelector("#villes").innerHTML = ville;
+    document.querySelector("#description").innerHTML = meteo.weather[0].description
+}
+
+function mapvue(meteo){
+    var map = L.map('mapid').setView([meteo.coord.lat, meteo.coord.lon], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    L.marker([meteo.coord.lat, meteo.coord.lon]).addTo(map)
+        .openPopup();
+}
+
 btn.addEventListener('click' ,recherche);
 document.querySelector('span').addEventListener('click', geoloc);

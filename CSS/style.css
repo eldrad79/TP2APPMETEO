@@ -15,3 +15,6 @@ body{
     color:yellowgreen;
     transform: scale(1,2) ;
 }
+#mapid { 
+    height: 180px;
+}
